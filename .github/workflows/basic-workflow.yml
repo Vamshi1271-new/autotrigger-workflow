@@ -1,0 +1,19 @@
+name: Basic Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment Name"
+        required: true
+        default: "dev"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Input
+        run: |
+          echo "Workflow Triggered"
+          echo "Environment: ${{ github.event.inputs.environment }}"
